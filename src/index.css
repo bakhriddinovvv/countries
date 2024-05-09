@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui;
+  color: #555;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: 7rem;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.countries {
+  font-size: 2rem;
+}
+
+.country {
+  background-color: #fff;
+  font-size: 1.8rem;
+  width: 30rem;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  border-radius: 0.7rem;
+  box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.country_img {
+  width: 30rem;
+  height: 17rem;
+  object-fit: cover;
+  background-color: #eee;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
+}
+
+.country_data {
+  padding: 2.5rem 3.75rem 3rem 3.75rem;
+}
+
+.country_name {
+  font-size: 2.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.country_region {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.country_row:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.country_row span {
+  display: inline-block;
+  margin-right: 2rem;
+  font-size: 2.4rem;
+}
+
+.neighbour-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.neighbour {
+  transform: scale(0.8) translateY(1rem);
+  margin-left: 0;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.neighbour::before {
+  content: "Neighbour country № " attr(data-content);
+  width: 100%;
+  position: absolute;
+  top: -4rem;
+
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #888;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-block: 4rem;
+  width: 30rem;
+
+  border: 1px solid #888;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  width: 80%;
+  padding: 0.5rem 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  width: 20%;
+  border: none;
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.errText {
+  font-size: 1.3rem;
+  color: red;
+}
+
+.loader-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.loader {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: conic-gradient(transparent, orange);
+  animation: loading-spinner 1s linear infinite;
+}
+
+.loader::before {
+  content: "";
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
